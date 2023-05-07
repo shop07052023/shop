@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% endblock title %}
+{% block header %}{% endblock header %} 
+{% block content %}
+<div class="row">
+	<div class="col-md-3">
+		<h1 align="center">{% trans "Contacts" %}</h1>
+		<address>
+			<p>ул. Орджоникидзе 49, Усть-Каменогорск 070004</6>			
+		</address>				
+		<p><a href="tel:+77779835757">+7(777)983-5757</a><p>
+		<a href="https://www.ektu.kz/departments/college.aspx?lang=ru">www.ektu.kz/departments/college.aspx/</a>									
+	</div>
+	<div class="col-md-9" style="position:relative;overflow:hidden;">
+		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2567.202936214731!2d82.61846431571335!3d49.951295579409575!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x42eb451608797d03%3A0x32dc300c380fc87!2z0JHQuNC30L3QtdGBINGG0LXQvdGC0YAgTWVnYXBvbGlz!5e0!3m2!1sru!2skz!4v1683437519998!5m2!1sru!2skz" width="100%" height="500px" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+	</div>
+</div>
+{% endblock content %}
