@@ -10,7 +10,7 @@ def new_catalog(apps, schema_editor):
 
     # Суперпользователь id=1
     user = User.objects.create_superuser(username='root',
-    email='shop260222@mail.ru',
+    email='shop07052023@mail.ru',
     password='SsNn5678+-@')
     print("Суперпользователь создан")
     
@@ -140,9 +140,22 @@ def new_catalog(apps, schema_editor):
     invoice.numb = 5
     invoice.save()
 
+    invoice = Invoice()
+    invoice.organization_id = 2
+    invoice.datei = datetime.now() - timedelta(days=40)
+    invoice.numb = 6
+    invoice.save()
+
+    invoice = Invoice()
+    invoice.organization_id = 3
+    invoice.datei = datetime.now() - timedelta(days=39)
+    invoice.numb = 7
+    invoice.save()
+
+
     print("Приходные накладные добавлены")
 
-    ##### Категория товара #####
+        ##### Категория товара #####
 
     Category = apps.get_model("product", "Category")
 
@@ -159,10 +172,6 @@ def new_catalog(apps, schema_editor):
     category.save()
 
     category = Category()
-    category.title='Наушники'   
-    category.save()
-
-    category = Category()
     category.title='Планшет'   
     category.save()
 
@@ -170,7 +179,11 @@ def new_catalog(apps, schema_editor):
     category.title='Электронная книга'   
     category.save()
 
+    category = Category()
+    category.title='Наушники'   
+    category.save()
     print("Категория товара добавлена")
+
 
     ##### Каталог товаров #####
     
@@ -523,6 +536,137 @@ def new_catalog(apps, schema_editor):
     catalog.quantity=10
     #catalog.photo='images/Prestigio_Muze_H1_Black.jpg'
     catalog.photo='images/product25.jpg'
+    catalog.save()
+    print(catalog.id)
+
+
+    catalog = Catalog()
+    catalog.invoice_id = 6
+    catalog.code='11111'
+    catalog.category_id=3
+    catalog.title='Смарт-часы Jet Kid Connect, Pink'
+    catalog.info='Теперь вы в любое время дозвонитесь до ребенка, ведь часы постоянно у него на руке, в отличие от забытого в рюкзаке или оставленного в другой комнате смартфона. Когда ребенок не с вами – просто позвоните на часы и вы услышите, что происходит вокруг него.'
+    catalog.details='Телефон, текстовые сообщения, голосовые сообщения, история перемещений, геолокация (только LBS), геозоны, кнопка SOS, удаленное фото, функция "Тихий звонок", будильник, встроенный фонарик, оповещение о разряде батареи, удаленный поиск часов (Anti lost)'
+    catalog.price=8990
+    catalog.quantity=10
+    catalog.photo='images/product26.jpg'
+    catalog.save()
+    print(catalog.id)
+
+    catalog = Catalog()
+    catalog.invoice_id = 6
+    catalog.code='22222'
+    catalog.category_id=3
+    catalog.title='Смарт-часы Jet Kid Talk, Blue-Grey'
+    catalog.info='Теперь вы в любое время дозвонитесь до ребенка, ведь часы постоянно у него на руке, в отличие от забытого в рюкзаке или оставленного в другой комнате смартфона. Когда ребенок не с вами – просто позвоните на часы и вы услышите, что происходит вокруг него.'
+    catalog.details='Текстовые сообщения, голосовые сообщения, геолокация (только LBS), геозоны, история перемещений, кнопка SOS, удаленное фото, функция "Тихий звонок", будильник, встроенный фонарик, удаленный поиск часов'
+    catalog.price=10990
+    catalog.quantity=10
+    catalog.photo='images/product27.jpg'
+    catalog.save()
+    print(catalog.id)
+
+    catalog = Catalog()
+    catalog.invoice_id = 6
+    catalog.code='33333'
+    catalog.category_id=3
+    catalog.title='Смарт-часы Jet Kid Friend, Pink-White'
+    catalog.info='Стильные смарт-часы Jet Kid Friend выполняют не только свои главные функции в определении времени, по ним можно звонить, отправлять текстовые и голосовые сообщения и определять геолокацию. При этом есть возможность создавать безопасные для ребенка зоны, в которых ему разрешено находиться. Если же ребенок покинул одну из зон, то вы получите смс-уведомление на ваш смартфон.'
+    catalog.details='В смарт-часах Jet Kid Friend сохраняется вся история перемещений вашего ребенка, чтобы вы точно знали где он находился после школы или иных занятий. Если ребенок сочтет происходящую вокруг него ситуацию опасной, то он может сообщить вам об этом, нажав кнопку SOS.'
+    catalog.price=14990
+    catalog.quantity=10
+    catalog.photo='images/product28.jpg'
+    catalog.save()
+    print(catalog.id)
+
+    catalog = Catalog()
+    catalog.invoice_id = 6
+    catalog.code='44444'
+    catalog.category_id=3
+    catalog.title='Смарт-часы Canyon Marzipan CNS-SW75BL, Blue '
+    catalog.info='Личный женский календарь позволит вам фиксировать и отслеживать всю нужную информацию с помощью смартфона и приложения Canyon Life в стильном, ультрапрочном аксессуаре с алюминиевым корпусом. Часы обладают внушительным набором различных датчиков и функций, упрощают управление камерой, позволяют отслеживать важные уведомления и мотивируют заниматься физической активностью.'
+    catalog.details='В комплект входит два ремешка — силиконовый и кожаный, чтобы часы стали поистине универсальным гаджетом к любому наряду, на любое мероприятие и под любое настроение. Максимальный набор функций для часов, созданных специально для женщин!'
+    catalog.price=16900
+    catalog.quantity=10
+    catalog.photo='images/product29.jpg'
+    catalog.save()
+    print(catalog.id)
+
+    catalog = Catalog()
+    catalog.invoice_id = 6
+    catalog.code='55555'
+    catalog.category_id=3
+    catalog.title='Смарт-часы Amazfit Neo A2001, Red'
+    catalog.info='Часы Amazfit Neo оснащены четырехугольным экраном в стиле ретро с четырьмя физическими кнопками. Их конструкция обеспечивает идеальное соотношение стиля и универсальности. Это гармоничное сочетание классического дизайна и современных функций.'
+    catalog.details='Amazfit Neo, оснащенные датчиком3 PPG BioTrackerTM, могут отслеживать ваш пульс 24 часа в сутки, обеспечивая мониторинг пульса в режиме реального времени, чтобы помочь вам лучше понять состояние вашего здоровья.'
+    catalog.price=16990
+    catalog.quantity=10
+    catalog.photo='images/product30.jpg'
+    catalog.save()
+    print(catalog.id)
+    
+    catalog = Catalog()
+    catalog.invoice_id = 7
+    catalog.code='666666'
+    catalog.category_id=4
+    catalog.title='Планшет Prestigio MultiPad Wize 4117 3G, 8Gb, Wi-Fi+3G, Black'
+    catalog.info='Wize 4117 3G – это 7.0-дюймовый 3G планшет на базе Android 8.1 Oreo. Удобный для решения повседневных задач благодаря соотношению качества изображения, функциональной начинки и дизайна корпуса.'
+    catalog.details='Wize 4117 3G отлично подходит для решения повседневных задач: просмотра видео, чтения книг, серфинга в Интернете. Четырехъядерный процессор, 1ГБ оперативной памяти, литий-полимерная батарея на 2500 мАч и обновленная версия операционной системы Android 8.1 Oreo (Go edition) с оптимизированной скоростью работы делают планшет комфортным для ежедневного использования'
+    catalog.price=25590
+    catalog.quantity=10
+    catalog.photo='images/product31.jpg'
+    catalog.save()
+    print(catalog.id)
+
+    catalog = Catalog()
+    catalog.invoice_id = 7
+    catalog.code='77777'
+    catalog.category_id=4
+    catalog.title='Планшет Prestigio Smartkids Max, 16Gb, Wi-Fi, Violet-Orange'
+    catalog.info='Детский 10.1-дюймовый планшет SmartKids Max с IPS-экраном создан для того, чтобы дети весело проводили время и получали новые знания. Четкое и детализированное изображение на экране гарантирует, что ребенок будет полностью вовлечен в воспроизводимый контент.'
+    catalog.details='Android 9.0 и 4-ядерный процессор для комфортной работы. Оцените все преимущества SmartKids Max с 4-ядерным процессором, 1 ГБ оперативной памяти и 16ГБ встроенной памяти. С такой начинкой все приложения и игры запускаются быстро. Доступ к популярным приложениям и играм, видеороликам, книгам, телешоу и образовательному контенту от iWawa гарантирован без подвисаний. Базируется планшет на операционной системе Android 9.0 Pie (Go edition) с простым и интуитивно понятным интерфейсом. Разобраться с функциями и фишками гаджета еще никогда не было так просто.'
+    catalog.price=37500
+    catalog.quantity=10
+    catalog.photo='images/product32.jpg'
+    catalog.save()
+    print(catalog.id)
+
+    catalog = Catalog()
+    catalog.invoice_id = 7
+    catalog.code='88888'
+    catalog.category_id=4
+    catalog.title='Планшет Lenovo Tab M8 (3rd Gen) TB-8506F, 32 GB, Wi-Fi, Iron Grey'
+    catalog.info='Планшет Lenovo Tab M8 (3rd Gen) — ваш проводник в мир мультимедийных развлечений в формате HD. Времени автономной работы достаточно, чтобы вы могли часами наслаждаться любимыми видео без необходимости подзарядки, а благодаря сертификации TÜV существенно снижается зрительная нагрузка. Потрясающий 8-дюймовый TDDI-дисплей с матрицей IPS и узкими рамками обеспечивает превосходное качество изображения, а восьмиядерные процессоры, которыми теперь оснащается это устройство, являются залогом его высочайшей производительности на долгое время.'
+    catalog.details='Планшет Lenovo Tab M8 (3rd Gen) предназначен для совместного использования в кругу семьи, и для каждого найдется индивидуальное пространство с персональными настройками и приложениями.'
+    catalog.price=56990
+    catalog.quantity=10
+    catalog.photo='images/product33.jpg'
+    catalog.save()
+    print(catalog.id)
+
+    catalog = Catalog()
+    catalog.invoice_id = 7
+    catalog.code='99999'
+    catalog.category_id=4
+    catalog.title='Планшет Samsung Galaxy Tab A7 Lite, 8.7", 32Gb, Wi-Fi, Silver'
+    catalog.info='Широкий 8.7-дюймовый дисплей для ярких впечатлений от фильмов и игр. Тонкая рамка позволила увеличить экран без изменения размеров планшета. Благодаря компактному эргономичному корпусу планшет очень удобно держать в руках, даже работая и играя часами.'
+    catalog.details='Создан для вас актуальный эргономичный дизайн с высочайшими техническими характеристиками. Компактный планшет толщиной 8 мм весит всего 366 г и легко помещается в любую сумку. Выберите планшет в сером или серебристом цвете.'
+    catalog.price=66990
+    catalog.quantity=10
+    catalog.photo='images/product34.jpg'
+    catalog.save()
+    print(catalog.id)
+
+    catalog = Catalog()
+    catalog.invoice_id = 7
+    catalog.code='00000'
+    catalog.category_id=4
+    catalog.title='Планшет Samsung Galaxy Tab A8, 10.5", 64Gb, Wi-Fi+4G, Silver'
+    catalog.info='Благодаря тонким рамкам (10.2 мм) планшета Galaxy Tab A8 вы сможете полностью погрузиться в происходящее на большом 10.5" экране. Наслаждайтесь любимыми фильмами и контентом вместе с Galaxy Tab A8, открывая для себя новый удивительный мир.'
+    catalog.details='Классическая эстетика Galaxy Tab A8 прекрасно сочетаеся с ярким внешним видом. Гладкий металлический корпус толщиной всего 6.9 мм выполнен в узнаваемой стилистике планшетов Samsung.'
+    catalog.price=96990
+    catalog.quantity=10
+    catalog.photo='images/product35.jpg'
     catalog.save()
     print(catalog.id)
 

@@ -50,6 +50,8 @@ urlpatterns = [
     
     path('basket/delete/<int:id>/', views.basket_delete, name='basket_delete'),
 
+    path('reviews/list/', views.reviews_list, name='reviews_list'),
+
     path('delivery/list/', views.delivery_list, name='delivery_list'),
     path('delivery/index/<int:id>/', views.delivery_index, name='delivery_index'),
     path('delivery/create/<int:sale_id>/', views.delivery_create, name='delivery_create'),

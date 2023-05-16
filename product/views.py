@@ -514,16 +514,39 @@ def delivery_read(request, id):
         return HttpResponse(exception)
    
 # Отчеты
+@login_required
+@group_required("Managers")
 def report_index(request):
     catalog = ViewCatalog.objects.all().order_by('title')
     sale = ViewSale.objects.all().order_by('saleday')
     delivery = Delivery.objects.all().order_by('deliveryday')
-    review = ViewSale.objects.all().order_by('category', 'title', 'saleday')
+    review = ViewSale.objects.exclude(rating=None).order_by('category', 'title', 'saleday')
     return render(request, "report/index.html", {"catalog": catalog, "sale": sale, "delivery": delivery, "review": review })
 
 # Контакты
 def contact(request):
     return render(request, "contact.html")
+
+# Отзывы
+@login_required
+@group_required("Managers")
+def reviews_list(request):
+    try:
+        # Только продажи с отзывами
+        review = ViewSale.objects.exclude(rating=None).order_by('category', 'title', 'saleday')    
+        if request.method == "POST":
+            # Выделить id sale
+            sale_id = request.POST.dict().get("sale_id")
+            print("sale_id ", sale_id)
+            # Удалить отзывы
+            sale = Sale.objects.get(id=sale_id) 
+            sale.rating = None
+            sale.details = None
+            sale.save()
+        return render(request, "reviews/index.html", { "review": review })
+    except Exception as exception:
+        print(exception)
+        return HttpResponse(exception)    
 
 # Список для изменения с кнопками создать, изменить, удалить
 @login_required
